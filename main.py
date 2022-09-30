@@ -286,8 +286,10 @@ def saveData(file):
                     time.sleep(3)
                     print("Will try again for page ")
             title = soup.find('title').text
-            address_full = soup.find('span', attrs={'class':'zip-region-and-country'}).text
-            print(address_full)
+            try:
+                address_full = soup.find('span', attrs={'class':'zip-region-and-country'}).text
+            except AttributeError:
+                continue
             patternKeyValues = re.compile(r'var keyValues = .*};$', re.MULTILINE)
             patternAddress = re.compile(r'.+locationAddress: {(\n.*)+\"\n.+}\n.+$', re.MULTILINE)
             patternContactdata = re.compile(r' .+contactData: {.*},$', re.MULTILINE)
