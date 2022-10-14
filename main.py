@@ -212,7 +212,7 @@ def loadData(propertylink, title, cursor_count, address):
     country = "Germany"
     section = "Buy"
     typeProp = 'Apartment Buy'
-    f = open('/home/immodework/data.json')
+    f = open('/home/immodework2/data.json')
     data = json.load(f)
     state = data["obj_regio1"]
     try:
@@ -235,10 +235,10 @@ def loadData(propertylink, title, cursor_count, address):
         yearConstructed = data["obj_yearConstructed"]
     except KeyError:
         yearConstructed = ''
-    f = open('/home/immodework/data2.json')
+    f = open('/home/immodework2/data2.json')
     data = json.load(f)
     city = data["city"]
-    f = open('/home/immodework/data3.json')
+    f = open('/home/immodework2/data3.json')
     data = json.load(f)
     try:
         listing_person_utf = data["contactPerson"]["salutationAndTitle"] + ' ' + data["contactPerson"]["firstName"]  + ' ' +  data["contactPerson"]["lastName"]
@@ -298,7 +298,7 @@ def saveData(file):
             keyvalues_b = keyvalues.strip()
             keyvalues_r = keyvalues_b.rstrip(";")
             keyvalues_l = keyvalues_r.lstrip("var keyValues = ")
-            with open('/home/immodework/data.json', 'w') as f:
+            with open('/home/immodework2/data.json', 'w') as f:
                 json.dump(json.loads(keyvalues_l), f)
             # print("successful key values")
 
@@ -309,7 +309,7 @@ def saveData(file):
             address_l = address_r.lstrip("locationAddress: ")
             la = address_l.replace('undefined', 'null')
             py_obj = pyjson5.loads(la)
-            with open('/home/immodework/data2.json', 'w') as f:
+            with open('/home/immodework2/data2.json', 'w') as f:
                 json.dump(py_obj, f)
             # print("successful address")
 
@@ -319,7 +319,7 @@ def saveData(file):
             contact_r = contact_b.rstrip(",")
             contact_l = contact_r.lstrip("contactData: ")
 
-            with open('/home/immodework/data3.json', 'w') as f:
+            with open('/home/immodework2/data3.json', 'w') as f:
                 json.dump(json.loads(contact_l), f)
             print("successful search")
 
@@ -361,7 +361,7 @@ start = time.time()
 # saveData("/home/compscript/Bern.txt")
 # saveData("/home/compscript/Zug.txt")
 # loadData("propertylink", "title", 0)
-saveData('/home/immodework/Germany/Niedersachsen.txt')
+saveData('/home/immodework2/Germany/Niedersachsen.txt')
 # append()
 cursor.close()
 end = time.time()
