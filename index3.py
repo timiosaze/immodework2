@@ -15,12 +15,12 @@ def inc():
     count += 1
 
 API_URL = "https://api.zyte.com/v1/extract"
-API_KEY = "48795bf73f4744428f6d9c99fece3e22"
-for page in range(32,300):
+API_KEY = "0998c63df0e747eab8392a83c2f30ce9"
+for page in range(72,191):
     while True:
         try:
             response = requests.post(API_URL, auth=(API_KEY, ''), json={
-                "url": "https://www.immobilienscout24.de/Suche/de/berlin/berlin/wohnung-kaufen?pagenumber=" + str(page),
+                "url": "https://www.immobilienscout24.de/Suche/de/niedersachsen/wohnung-kaufen?pagenumber=" + str(page),
                 "browserHtml": True
                 })
             data = response.json()
@@ -36,7 +36,7 @@ for page in range(32,300):
         href = a['href']
         print(href)
         inc()
-        with open('Germany/Berlin/Wohwung.txt', "a") as myfile:
+        with open('Germany/Niedersachsen.txt', "a") as myfile:
             myfile.write(href + '\n')
     print("Appended all " + str(count) + " to page: " + str(page))
     

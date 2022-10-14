@@ -272,7 +272,7 @@ def saveData(file):
         if(newcount == 0):
             time.sleep(1)
             API_URL = "https://api.zyte.com/v1/extract"
-            API_KEY = "48795bf73f4744428f6d9c99fece3e22"
+            API_KEY = "0998c63df0e747eab8392a83c2f30ce9"
             while True:
                 try:
                     response = requests.post(API_URL, auth=(API_KEY, ''), json={
@@ -361,7 +361,7 @@ start = time.time()
 # saveData("/home/compscript/Bern.txt")
 # saveData("/home/compscript/Zug.txt")
 # loadData("propertylink", "title", 0)
-saveData('/home/immodework/Germany/Berlin.txt')
+saveData('/home/immodework/Germany/Niedersachsen.txt')
 # append()
 cursor.close()
 end = time.time()
